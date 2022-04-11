@@ -1,6 +1,9 @@
 - hosts: all
   become: yes
   tasks:
+   - name: disable swap
+     command: swapoff -a
+
    - name: install Docker
      apt:
        name: docker.io
