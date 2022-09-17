@@ -1,5 +1,4 @@
 - hosts: all
-  remote_user: ubuntu
   become: yes
   tasks:
    - name: disable swap
@@ -39,7 +38,6 @@
        state: present
 
 - hosts: master
-  remote_user: ubuntu
   become: yes
   tasks:
    - name: install kubectl

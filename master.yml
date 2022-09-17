@@ -1,5 +1,4 @@
 - hosts: master
-  remote_user: ubuntu
   become: yes
   tasks:
     - name: initialize the cluster
