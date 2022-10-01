@@ -5,5 +5,5 @@
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
         src: argo.sh
-        dest: ~/argo.sh
+        dest: argo.sh
         mode: '0644'
