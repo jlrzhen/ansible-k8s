@@ -1,12 +1,12 @@
-echo -e \e[1;42mApply Argo CD \e[0m"
+echo -e "\e[1;42mApply Argo CD \e[0m"
 kubectl create namespace argocd
 && kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-echo -e \e[1;42mDownload Argo CD CLI \e[0m"
+echo -e "\e[1;42mDownload Argo CD CLI \e[0m"
 sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 && sudo chmod +x /usr/local/bin/argocd
 
-echo -e \e[1;42mAccess The Argo CD API Server \e[0m"
+echo -e "\e[1;42mAccess The Argo CD API Server \e[0m"
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'        
 
 cat << EOF
