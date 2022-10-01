@@ -2,21 +2,8 @@
   become: yes
   gather_facts: false
   tasks:
-    - name: run Argo CD script
-      ansible.builtin.script: argo.sh
-    - name: print manual steps
-      shell: |
-        cat << EOF
-        # port forward
-        echo kubectl port-forward svc/argocd-server -n argocd 8080:443
-        
-        # Login Using The CLI
-        kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-        argocd login localhost:8080  
-        
-        # change password
-        argocd account update-password 
-        
-        # Register A Cluster To Deploy Apps To (Optional)
-        kubectl config get-contexts -o name | argocd cluster add
-        EOF
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: argo.sh
+        dest: ~/argo.sh
+        mode: '0644'
