@@ -3,6 +3,7 @@
   gather_facts: false
   tasks:
     - name: install Argo CD
+      register: shell_result
       shell: |
         echo Apply Argo CD
         kubectl create namespace argocd
@@ -29,3 +30,5 @@
         
         echo port forward
         kubectl port-forward svc/argocd-server -n argocd 8080:443
+    - debug:
+        var: shell_result.stdout_lines
