@@ -6,4 +6,4 @@
       ansible.builtin.copy:
         src: argo.sh
         dest: argo.sh
-        mode: '0644'
+        mode: '0755'
