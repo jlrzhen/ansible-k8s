@@ -1,12 +1,12 @@
 - name: Install dependencies
-  import_playbook: ansible-playbook kube-dependencies.yml
+  import_playbook: kube-dependencies.yml
 
 - name: Initialize controller
-  import_playbook: ansible-playbook controller.yml
+  import_playbook: controller.yml
 
 - name: Connect worker node to main node
-  import_playbook: ansible-playbook workers.yml
+  import_playbook: workers.yml
 
 - name: Install Argo
-  import_playbook: ansible-playbook argo.yml
+  import_playbook: argo.yml
   when: install_argo == 'true'
