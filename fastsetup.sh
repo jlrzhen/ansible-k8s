@@ -1,4 +1,4 @@
 ansible-playbook roles/common/tasks/main.yml \
---extra-vars "install_argo=false"
+--extra-vars "install_argo=false" \
 -i hosts \
 -K
