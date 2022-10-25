@@ -1,9 +1,9 @@
-- hosts: master
+- hosts: controller
   become: yes
   gather_facts: false
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: argo.sh
+        src: ../files/argo.sh
         dest: argo.sh
         mode: '0755'
