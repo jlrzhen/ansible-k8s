@@ -8,5 +8,4 @@
   import_playbook: workers.yml
 
 - name: Install Argo
-  import_playbook: argo.yml
-  when: install_argo == 'true'
+  import_playbook: ansible-playbook argo.yml
